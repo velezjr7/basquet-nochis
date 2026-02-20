@@ -191,7 +191,7 @@ const Home: React.FC = () => {
               <h2 className="text-3xl font-bold text-gray-900">
                 {activeLeague.name}
               </h2>
-              <p className="text-gray-500 mt-1">Temporada 2023-2024</p>
+              <p className="text-gray-500 mt-1">Temporada Enero - Junio 2026</p>
             </div>
 
             <LeagueSection league={activeLeague} themeColor={activeTheme} />
