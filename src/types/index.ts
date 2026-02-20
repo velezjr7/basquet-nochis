@@ -1,4 +1,4 @@
-export type LeagueCategory = 'femenil' | 'mixta' | 'juvenil';
+export type LeagueCategory = "femenil" | "mixta" | "juvenil";
 
 export interface Team {
   id: string;
@@ -6,16 +6,16 @@ export interface Team {
   logo: string;
 }
 
-export type MatchStatus = 'programado' | 'jugado' | 'suspendido';
+export type MatchStatus = "programado" | "jugado" | "suspendido" | "descansa";
 
 export interface Match {
   id: string;
   homeTeamId: string;
-  awayTeamId: string;
+  awayTeamId?: string; // Optional for bye weeks
   homeScore?: number;
   awayScore?: number;
-  date: string;
-  time: string;
+  date?: string;
+  time?: string;
   status: MatchStatus;
   round: number; // Jornada
 }
@@ -38,5 +38,5 @@ export interface TeamStats {
   pointsFor: number;
   pointsAgainst: number;
   diff: number;
-  points: number; // usually 2 for win, 1 for loss, 0 for forfeit/suspended? Or standard 2/1/0
+  points: number;
 }

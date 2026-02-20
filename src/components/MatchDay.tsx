@@ -1,6 +1,6 @@
-import React from 'react';
-import { Match, Team } from '../types';
-import MatchCard from './MatchCard';
+import React from "react";
+import { Match, Team } from "../types";
+import MatchCard from "./MatchCard";
 
 interface MatchDayProps {
   round: number;
@@ -9,8 +9,13 @@ interface MatchDayProps {
   themeColor: string;
 }
 
-const MatchDay: React.FC<MatchDayProps> = ({ round, matches, teams, themeColor }) => {
-  const getTeam = (id: string) => teams.find(t => t.id === id)!;
+const MatchDay: React.FC<MatchDayProps> = ({
+  round,
+  matches,
+  teams,
+  themeColor,
+}) => {
+  const getTeam = (id: string) => teams.find((t) => t.id === id)!;
 
   return (
     <div className="mb-8">
@@ -19,12 +24,12 @@ const MatchDay: React.FC<MatchDayProps> = ({ round, matches, teams, themeColor }
         Jornada {round}
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {matches.map(match => (
+        {matches.map((match) => (
           <MatchCard
             key={match.id}
             match={match}
             homeTeam={getTeam(match.homeTeamId)}
-            awayTeam={getTeam(match.awayTeamId)}
+            awayTeam={match.awayTeamId ? getTeam(match.awayTeamId) : undefined}
             themeColor={themeColor}
           />
         ))}

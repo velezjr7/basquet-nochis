@@ -1,10 +1,13 @@
-import { Match, Team, TeamStats, MatchStatus } from '../types';
+import { Match, Team, TeamStats, MatchStatus } from "../types";
 
-export const calculateStandings = (matches: Match[], teams: Team[]): TeamStats[] => {
+export const calculateStandings = (
+  matches: Match[],
+  teams: Team[],
+): TeamStats[] => {
   const stats: Record<string, TeamStats> = {};
 
   // Initialize stats for all teams
-  teams.forEach(team => {
+  teams.forEach((team) => {
     stats[team.id] = {
       teamId: team.id,
       teamName: team.name,
@@ -19,8 +22,13 @@ export const calculateStandings = (matches: Match[], teams: Team[]): TeamStats[]
     };
   });
 
-  matches.forEach(match => {
-    if (match.status === 'jugado' && match.homeScore !== undefined && match.awayScore !== undefined) {
+  matches.forEach((match) => {
+    if (
+      match.status === "jugado" &&
+      match.homeScore !== undefined &&
+      match.awayScore !== undefined &&
+      match.awayTeamId
+    ) {
       const home = stats[match.homeTeamId];
       const away = stats[match.awayTeamId];
 
@@ -62,13 +70,21 @@ export const getHighlights = (stats: TeamStats[]) => {
   if (stats.length === 0) return null;
 
   // Best Offense (Most Points For / Games Played)
-  const bestOffense = [...stats].sort((a, b) => (b.pointsFor / (b.played || 1)) - (a.pointsFor / (a.played || 1)))[0];
+  const bestOffense = [...stats].sort(
+    (a, b) => b.pointsFor / (b.played || 1) - a.pointsFor / (a.played || 1),
+  )[0];
 
   // Best Defense (Least Points Against / Games Played)
-  const bestDefense = [...stats].sort((a, b) => (a.pointsAgainst / (a.played || 1)) - (b.pointsAgainst / (b.played || 1)))[0];
+  const bestDefense = [...stats].sort(
+    (a, b) =>
+      a.pointsAgainst / (a.played || 1) - b.pointsAgainst / (b.played || 1),
+  )[0];
 
   // Worst Defense (Most Points Against / Games Played)
-  const worstDefense = [...stats].sort((a, b) => (b.pointsAgainst / (b.played || 1)) - (a.pointsAgainst / (a.played || 1)))[0];
+  const worstDefense = [...stats].sort(
+    (a, b) =>
+      b.pointsAgainst / (b.played || 1) - a.pointsAgainst / (a.played || 1),
+  )[0];
 
   // Best Diff
   const bestDiff = [...stats].sort((a, b) => b.diff - a.diff)[0];
@@ -77,6 +93,6 @@ export const getHighlights = (stats: TeamStats[]) => {
     bestOffense,
     bestDefense,
     worstDefense,
-    bestDiff
+    bestDiff,
   };
 };
