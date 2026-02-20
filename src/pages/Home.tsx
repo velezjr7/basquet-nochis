@@ -30,13 +30,13 @@ const leagues: LeagueData[] = [
     teams: teamsJuvenil,
     matches: matchesJuvenil,
   },
-  {
-    id: "mixta",
-    name: "Liga Mixta",
-    category: "mixta",
-    teams: teamsMixta,
-    matches: matchesMixta,
-  },
+  // {
+  //   id: "mixta",
+  //   name: "Liga Mixta",
+  //   category: "mixta",
+  //   teams: teamsMixta,
+  //   matches: matchesMixta,
+  // },
 ];
 
 const THEME_COLORS: Record<LeagueCategory, string> = {
