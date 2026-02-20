@@ -2,7 +2,7 @@ import { Team, Match } from "../types";
 
 export const teams: Team[] = [
   { id: "ra", name: "Ramon", logo: "/images/juvenil/ramon.png" },
-  { id: "xa", name: "Xaltecas", logo: "/images/juvenil/xaltecas.jpg" },
+  { id: "xa", name: "Xaltecas", logo: "/images/juvenil/xaltecas.jpeg" },
   {
     id: "edj",
     name: "EDJ",
