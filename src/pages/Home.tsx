@@ -18,10 +18,17 @@ import {
 const leagues: LeagueData[] = [
   {
     id: "femenil",
-    name: "Liga Femenil",
+    name: "Liga Juvenil Femenil",
     category: "femenil",
     teams: teamsFemenil,
     matches: matchesFemenil,
+  },
+  {
+    id: "juvenil",
+    name: "Liga Juvenil Varonil",
+    category: "juvenil",
+    teams: teamsJuvenil,
+    matches: matchesJuvenil,
   },
   {
     id: "mixta",
@@ -29,13 +36,6 @@ const leagues: LeagueData[] = [
     category: "mixta",
     teams: teamsMixta,
     matches: matchesMixta,
-  },
-  {
-    id: "juvenil",
-    name: "Liga Juvenil",
-    category: "juvenil",
-    teams: teamsJuvenil,
-    matches: matchesJuvenil,
   },
 ];
 
