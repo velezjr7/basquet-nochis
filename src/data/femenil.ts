@@ -196,4 +196,15 @@ export const matches: Match[] = [
     status: "descansa",
     round: 6,
   },
+  {
+    id: "m1",
+    homeTeamId: "tla",
+    awayTeamId: "plc",
+    homeScore: 47,
+    awayScore: 17,
+    date: "Jueves 05 de Marzo de 2026 Cancha 1",
+    time: "5:00 PM",
+    status: "jugado",
+    round: 7,
+  },
 ];
